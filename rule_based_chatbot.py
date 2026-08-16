@@ -76,7 +76,7 @@ def response(user_input):
   user_input = normalize(user_input) #variable is user_input, parameter is normalize
   for intent, data in intents.items(): #to look at type of intent
     for pattern in data["patterns"]: #to look at the patterns
-      if normalize(pattern) in user_input:  #if it matches with user_input
+      if user_input in normalize(pattern):  #if it matches with user_input             <---- PROBLEM HERE, chatbot only responds when user says the word "hi"
         return random.choice(data["responses"]) #uses random.choice to randomly choose a response depending on the intent
       return "I'm not sure how to respond to that." 
 
